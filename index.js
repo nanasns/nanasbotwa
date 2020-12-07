@@ -250,25 +250,20 @@ conn.sendMessage(id, teks, MessageType.text)
 }
 
 if (text.includes(".ytmp3")){
-            if (args.length === 1) return client.reply(from, 'Kirim perintah *.ytmp3 [linkYt]*')
-            let isLinks = args[1].match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/)
-            if (!isLinks) return client.reply(from, mess.error.Iv, id)
-            try {
-                client.reply(from, mess.wait, id)
-                const resp = await get.get(`https://mhankbarbar.herokuapp.com/api/yta?url=${args[1]}&apiKey=${apiKey}`).json()
-                if (resp.error) {
-                    client.reply(from, resp.error, id)
-                } else {
-                    const { title, thumb, filesize, result } = await resp
-                    if (Number(filesize.split(' MB')[0]) >= 30.00) return client.reply(from, 'Maaf durasi video sudah melebihi batas maksimal!', id)
-                    client.sendFileFromUrl(from, thumb, 'thumb.jpg', `➸ *Title* : ${title}\n➸ *Filesize* : ${filesize}\n\nSilahkan tunggu sebentar proses pengiriman file membutuhkan waktu beberapa menit.`, id)
-                    await client.sendFileFromUrl(from, result, `${title}.mp3`, '', id).catch(() => client.reply(from, mess.error.Yt3, id))
-                    //await client.sendAudio(from, result, id)
-                }
-            } catch (err) {
-                client.sendText(ownerNumber[0], 'Error ytmp3 : '+ err)
-                client.reply(from, mess.error.Yt3, id)
-            }
+
+const teks = text.replace(/.yt /, "")
+
+axios.get(`http://scrap.terhambar.com/yt?link=${teks}`).then((res) => {
+
+	conn.sendMessage(id, '[WAIT] Searching...⏳', MessageType.text)
+
+    let hasil = `✅Lagu Berhasil Di Download, silahkan klik link dan download hasilnya\nKlik link dibawahn\nJudul: ${res.data.title}\n\nDuration: ${res.data.inText}\n\nAudio: ${res.data.linkAudioOnly}`;
+
+    conn.sendMessage(id, hasil ,MessageType.text);
+
+})
+
+}
 if (text.includes(".infoig")){
   const teks = text.replace(/.infoig /, "")
   axios.get(`https://st4rz.herokuapp.com/api/stalk?username=${teks}`).then ((res) =>{
