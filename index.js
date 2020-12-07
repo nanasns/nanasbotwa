@@ -268,8 +268,7 @@ if (text.includes(".ytmp3")){
             } catch (err) {
                 client.sendText(ownerNumber[0], 'Error ytmp3 : '+ err)
                 client.reply(from, mess.error.Yt3, id)
-            }) 
-	   } 
+            }
 if (text.includes(".infoig")){
   const teks = text.replace(/.infoig /, "")
   axios.get(`https://st4rz.herokuapp.com/api/stalk?username=${teks}`).then ((res) =>{
