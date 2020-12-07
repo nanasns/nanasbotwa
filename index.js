@@ -250,7 +250,6 @@ conn.sendMessage(id, teks, MessageType.text)
 }
 
 if (text.includes(".ytmp3")){
-case '.ytmp3':
             if (args.length === 1) return client.reply(from, 'Kirim perintah *.ytmp3 [linkYt]*')
             let isLinks = args[1].match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/)
             if (.isLinks) return client.reply(from, mess.error.Iv, id)
