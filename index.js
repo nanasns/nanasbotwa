@@ -145,6 +145,9 @@ conn.sendMessage(id, 'Pasti tata krama belum ditemukan disini.' ,MessageType.tex
 else if (text == 'Telaso'){
 conn.sendMessage(id, 'Pasti tata krama belum ditemukan disini.' ,MessageType.text);
 }
+else if (text == 'Setang'){
+conn.sendMessage(id, 'Pasti tata krama belum ditemukan disini.' ,MessageType.text);
+}
 else if (text == 'Anjing'){
 conn.sendMessage(id, 'Pasti tata krama belum ditemukan disini.' ,MessageType.text);
 }
@@ -190,8 +193,8 @@ conn.sendMessage(id, 'Cih.' ,MessageType.text);
 else if (text == 'Mas'){
 conn.sendMessage(id, 'Ya?' ,MessageType.text);
 }
-else if (text == 'Mba'){
-conn.sendMessage(id, 'Ya?' ,MessageType.text);
+else if (text == 'Bakso saty'){
+conn.sendMessage(id, 'Ok tunggu.' ,MessageType.text);
 }
 else if (text == 'Bre'){
 conn.sendMessage(id, 'Ya?' ,MessageType.text);
