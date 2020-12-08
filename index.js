@@ -252,14 +252,6 @@ if (text.includes(".say")){
 conn.sendMessage(id, teks, MessageType.text)
 }
 
-if (text.includes(".ytmp3")){
-const teks = text.replace(/.yt /, "")
-axios.get(`http://scrap.terhambar.com/yt?link=${teks}`).then((res) => {
-	conn.sendMessage(id, '[WAIT] Searching...⏳', MessageType.text)
-    let hasil = `✅Lagu Berhasil Di Download, silahkan klik link dan download hasilnya\nKlik link dibawahn\nJudul: ${res.data.title}\n\nDuration: ${res.data.inText}\n\nAudio: ${res.data.linkAudioOnly}`;
-    conn.sendMessage(id, hasil ,MessageType.text);
-})
-}
 if (text.includes(".infoig")){
   const teks = text.replace(/.infoig /, "")
   axios.get(`https://st4rz.herokuapp.com/api/stalk?username=${teks}`).then ((res) =>{
