@@ -14,8 +14,8 @@ const info = require("./lib/info.js");
 				  
 //
 const BotName = 'Nanas'; // Nama Bot Whatsapp
-const instagramlu = 'https://instagram.com/nasrullah_ns10'; // Nama Instagramlu cok
-const whatsapplu = '0882-5814-6470'; // Nomor whatsapplu cok
+const instagramlu = 'https://instagram.com/nasrullah_ns10' ; // Nama Instagramlu cok
+const whatsapplu = '0882-5814-6470' ; // Nomor whatsapplu cok
 const kapanbotaktif = '24 Jam'; // Kapan bot lu aktif
 //
 const
@@ -175,9 +175,6 @@ conn.sendMessage(id, 'Ya?' ,MessageType.text);
 else if (text == 'Gan'){
 conn.sendMessage(id, 'Ya?' ,MessageType.text);
 }
-else if (text == 'Sis'){
-conn.sendMessage(id, 'Ya?' ,MessageType.text);
-}
 else if (text == 'Bro'){
 conn.sendMessage(id, 'Ya?' ,MessageType.text);
 }
@@ -185,7 +182,7 @@ else if (text == 'Min'){
 conn.sendMessage(id, 'Ya?' ,MessageType.text);
 }
 else if (text == 'Sayang'){
-conn.sendMessage(id, 'Ya?' ,MessageType.text);
+conn.sendMessage(id, 'Cih.' ,MessageType.text);
 }
 else if (text == 'I love u'){
 conn.sendMessage(id, 'Cih.' ,MessageType.text);
@@ -193,8 +190,8 @@ conn.sendMessage(id, 'Cih.' ,MessageType.text);
 else if (text == 'Mas'){
 conn.sendMessage(id, 'Ya?' ,MessageType.text);
 }
-else if (text == 'Bakso saty'){
-conn.sendMessage(id, 'Ok tunggu.' ,MessageType.text);
+else if (text == 'Bakso satu'){
+conn.sendMessage(id, 'Ok tunggu sebentar' ,MessageType.text);
 }
 else if (text == 'Bre'){
 conn.sendMessage(id, 'Ya?' ,MessageType.text);
@@ -252,6 +249,14 @@ if (text.includes(".say")){
 conn.sendMessage(id, teks, MessageType.text)
 }
 
+if (text.includes(".ytmp3")){
+const teks = text.replace(/.yt /, "")
+axios.get(`http://scrap.terhambar.com/yt?link=${teks}`).then((res) => {
+	conn.sendMessage(id, '[WAIT] Searching...⏳', MessageType.text)
+    let hasil = `✅Lagu Berhasil Di Download, silahkan klik link dan download hasilnya\nKlik link dibawahn\nJudul: ${res.data.title}\n\nDuration: ${res.data.inText}\n\nAudio: ${res.data.linkAudioOnly}`;
+    conn.sendMessage(id, hasil ,MessageType.text);
+})
+}
 if (text.includes(".infoig")){
   const teks = text.replace(/.infoig /, "")
   axios.get(`https://st4rz.herokuapp.com/api/stalk?username=${teks}`).then ((res) =>{
